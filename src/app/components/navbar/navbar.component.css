@@ -1,0 +1,61 @@
+
+
+.header{
+    background-color: #072146;
+    height: 88px;
+    /* padding: 20px 77px; */
+    padding-right: 20%;
+    padding-left: 20%;
+}
+
+.header .logo{
+    cursor: pointer;
+}
+
+.header .enlaces {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  padding-right: 30px;
+  padding-left: 0;
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+}
+
+.header .enlaces:hover {
+  color: #fff;
+}
+
+.header .tarjeta-credito {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  padding-right: 30px;
+  padding-left: 0;
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+}
+
+.hover .tarjeta-credito:hover {
+  color: #fff;
+}
+
+.abre-cuenta {
+  font-weight: bold;
+  color: #f8cd51;
+}
+
+.abre-cuenta:hover {
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+}
+
+.button-banca {
+  height: 52px;
+  width: 182px;
+  font-weight: bold;
+  background-color: #02a5a5;
+  color: #fff;
+  letter-spacing: 1px;
+}
