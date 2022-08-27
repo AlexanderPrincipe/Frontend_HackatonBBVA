@@ -14,6 +14,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { TableInfoDetailComponent } from './components/table-info-detail/table-info-detail.component';
+import { MatTableModule } from '@angular/material/table';  
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { HomeComponent } from './components/home/home.component';
     FormComponent,
     CustomersComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    TableInfoDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { HomeComponent } from './components/home/home.component';
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ],
   providers: [CustomersService],
   bootstrap: [AppComponent]
