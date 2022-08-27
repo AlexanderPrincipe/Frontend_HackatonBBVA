@@ -20,6 +20,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AforoComponent } from './components/aforo/aforo.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HomeAforoComponent } from './components/home-aforo/home-aforo.component';
+import { LoadBarComponent } from './load-bar/load-bar.component';
 
 @NgModule({
 
@@ -32,7 +33,8 @@ import { HomeAforoComponent } from './components/home-aforo/home-aforo.component
     TableInfoDetailComponent,
     AforoComponent,
     CarouselComponent,
-    HomeAforoComponent
+    HomeAforoComponent,
+    LoadBarComponent
   ],
 
   imports: [

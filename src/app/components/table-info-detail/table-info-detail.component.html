@@ -13,7 +13,7 @@
     <!-- Weight Column -->
     <ng-container matColumnDef="capacity">
       <th mat-header-cell *matHeaderCellDef> Capacidad </th>
-      <td mat-cell *matCellDef="let element"> {{element.capacity}} </td>
+      <td mat-cell *matCellDef="let element"> <app-load-bar></app-load-bar> </td>
     </ng-container>
   
     <!-- Symbol Column -->
