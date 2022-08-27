@@ -56,6 +56,6 @@
   width: 182px;
   font-weight: bold;
   background-color: #02a5a5;
-  color: #fff;
+  color: rgba(255,255,255,0.9);
   letter-spacing: 1px;
 }
