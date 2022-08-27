@@ -15,22 +15,26 @@ import { MatDividerModule } from '@angular/material/divider';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { TableInfoDetailComponent } from './components/table-info-detail/table-info-detail.component';
+import { MatTableModule } from '@angular/material/table';  
 import { AforoComponent } from './components/aforo/aforo.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HomeAforoComponent } from './components/home-aforo/home-aforo.component';
 
-
 @NgModule({
+
   declarations: [
     AppComponent,
     FormComponent,
     CustomersComponent,
     NavbarComponent,
     HomeComponent,
+    TableInfoDetailComponent,
     AforoComponent,
     CarouselComponent,
     HomeAforoComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,9 +45,12 @@ import { HomeAforoComponent } from './components/home-aforo/home-aforo.component
     MatDividerModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatTableModule,
     MatAutocompleteModule
   ],
   providers: [CustomersService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
