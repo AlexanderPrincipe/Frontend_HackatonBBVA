@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<div class="d-flex justify-content-center buscar-oficina mt-4">
+  Buscar oficina
+</div>
+<div class="container mt-5">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-4">
+        <form class="example-form d-flex justify-content-center">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Departamento</mat-label>
+            <input type="text"
+                   placeholder="Selecciona departamento"
+                   aria-label="Number"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </div>
+
+      <div class="col-4">
+        <form class="example-form d-flex justify-content-center">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Provincia</mat-label>
+            <input type="text"
+                   placeholder="Selecciona provincia"
+                   aria-label="Number"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </div>
+
+      <div class="col-4">
+        <form class="example-form d-flex justify-content-center">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Distrito</mat-label>
+            <input type="text"
+                   placeholder="Selecciona distrito"
+                   aria-label="Number"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
