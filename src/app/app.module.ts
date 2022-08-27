@@ -8,6 +8,7 @@ import { CustomersService } from "./services/customers.service";
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -16,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { TableInfoDetailComponent } from './components/table-info-detail/table-info-detail.component';
 import { MatTableModule } from '@angular/material/table';  
+import { AforoComponent } from './components/aforo/aforo.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { MatTableModule } from '@angular/material/table';
     CustomersComponent,
     NavbarComponent,
     HomeComponent,
-    TableInfoDetailComponent
+    TableInfoDetailComponent,
+    AforoComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { MatTableModule } from '@angular/material/table';
     MatDividerModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatAutocompleteModule
   ],
   providers: [CustomersService],
   bootstrap: [AppComponent]
