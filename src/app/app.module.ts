@@ -16,6 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AforoComponent } from './components/aforo/aforo.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { HomeAforoComponent } from './components/home-aforo/home-aforo.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { AforoComponent } from './components/aforo/aforo.component';
     CustomersComponent,
     NavbarComponent,
     HomeComponent,
-    AforoComponent
+    AforoComponent,
+    CarouselComponent,
+    HomeAforoComponent
   ],
   imports: [
     BrowserModule,
