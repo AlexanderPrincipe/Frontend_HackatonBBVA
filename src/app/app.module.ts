@@ -12,13 +12,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    CustomersComponent
+    CustomersComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
