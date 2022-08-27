@@ -22,15 +22,15 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async saveCustomer(customer: Customer) {
-    this.customerService.saveCustomer(customer).subscribe(
-      res => {
-        console.log('res', res);
-        this.formCustomer.reset();
-      },
-      error => console.log(error)
-    );
-  };
+  // async saveCustomer(customer: Customer) {
+  //   this.customerService.saveCustomer(customer).subscribe(
+  //     res => {
+  //       console.log('res', res);
+  //       this.formCustomer.reset();
+  //     },
+  //     error => console.log(error)
+  //   );
+  // };
 
   goToListCustomers(pageName: any) {
     this.router.navigate([`${pageName}`]);

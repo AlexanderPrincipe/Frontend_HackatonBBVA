@@ -15,13 +15,13 @@ export class CustomersComponent implements OnInit {
   constructor(private customerService: CustomersService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getCustomer();
+    // this.getCustomer();
   }
 
-  async getCustomer() {
-    const customer = await this.customerService.getCustomers().toPromise();
-    this.customers = customer;
-  }
+  // async getCustomer() {
+  //   const customer = await this.customerService.getCustomers().toPromise();
+  //   this.customers = customer;
+  // }
 
   goToForm(pageName: any) {
     this.router.navigate([`${pageName}`]);

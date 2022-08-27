@@ -1,4 +1,7 @@
+/* @import '../../../node_modules/npm-font-open-sans/open-sans'; */
+@import '../../../../node_modules/npm-font-open-sans/open-sans';
+
 .buscar-oficina {
   font-size: 36px;
-  font-family: "Benton Sans";
+  /* font-family: "Benton Sans"; */
 }

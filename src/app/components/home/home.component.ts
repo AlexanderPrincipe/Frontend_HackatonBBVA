@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CustomersService } from 'src/app/services/customers.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  oficinas: any;
+
+  constructor(private customerService: CustomersService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getOficinas();
+  }
+
+  async getOficinas() {
+    const oficinas = await this.customerService.getOficinas().toPromise();
+    this.oficinas = oficinas;
+    console.log('Ofinciaks', this.oficinas.response);
   }
 
 }
