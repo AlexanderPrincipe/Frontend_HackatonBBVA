@@ -11,9 +11,14 @@
     </ng-container>
   
     <!-- Weight Column -->
+    <!-- <ng-container matColumnDef="aforo_max">
+      <th mat-header-cell *matHeaderCellDef> Capacidad </th>
+      <td mat-cell *matCellDef="let element"> {{element.capacity}} </td>
+    </ng-container> -->
+
     <ng-container matColumnDef="aforo_max">
       <th mat-header-cell *matHeaderCellDef> Capacidad </th>
-      <td mat-cell *matCellDef="let element"> {{element.office.aforo_max}} </td>
+      <td mat-cell *matCellDef="let element"> <app-load-bar [value] = "element.office.aforo_max"></app-load-bar> </td>
     </ng-container>
   
     <!-- Symbol Column -->

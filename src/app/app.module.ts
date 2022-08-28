@@ -20,7 +20,10 @@ import { MatTableModule } from '@angular/material/table';
 import { AforoComponent } from './components/aforo/aforo.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HomeAforoComponent } from './components/home-aforo/home-aforo.component';
-import {MatSelectModule} from '@angular/material/select';
+import { LoadBarComponent } from './load-bar/load-bar.component';
+import { GeolocalizacionComponent } from './components/geolocalizacion/geolocalizacion.component';
+import { MatSelectModule } from '@angular/material/select';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
 
@@ -33,7 +36,9 @@ import {MatSelectModule} from '@angular/material/select';
     TableInfoDetailComponent,
     AforoComponent,
     CarouselComponent,
-    HomeAforoComponent
+    HomeAforoComponent,
+    LoadBarComponent,
+    GeolocalizacionComponent
   ],
 
   imports: [
@@ -49,6 +54,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatProgressBarModule
   ],
   providers: [CustomersService],
   bootstrap: [AppComponent]

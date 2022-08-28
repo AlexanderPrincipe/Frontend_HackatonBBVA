@@ -53,7 +53,7 @@ export class AforoComponent implements OnInit {
     // console.log('options', this.options);
     // console.log('department', department);
     // console.log('province', province);
-    console.log('district', district);
+    // console.log('district', district);
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),  
@@ -65,14 +65,14 @@ export class AforoComponent implements OnInit {
     // console.log('departmentFilter', departmentFilter[0].id_ubigeo);
     const res = Object.entries(province).map((x: any) => x).filter((x: any ) => x[0] === departmentFilter[0].id_ubigeo);
     this.arrayProvince = res.map((x:any) => x[1])
-    // console.log('arrayProvince', this.arrayProvince);
+    console.log('arrayProvince', this.arrayProvince);
   }
 
   getSelectedProvince(value: any) { 
     // console.log('value', value.id_ubigeo);
     const res = Object.entries(district).map((x: any) => x).filter((x: any ) => x[0] === value.id_ubigeo);
     this.arrayDistrict = res.map((x:any) => x[1])
-    // console.log('arrayDistrict', this.arrayDistrict);
+    console.log('arrayDistrict', this.arrayDistrict);
   }
 
   getSelectedDistrict(value: any) { 
