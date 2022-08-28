@@ -13,13 +13,15 @@ export class GeolocalizacionComponent implements OnInit {
   long: any = -77.0210209;
   oficinas: any = [];
   arrDistanceNear: any = []; 
+  recomendado: any;
 
   constructor(private customerService: CustomersService, private router: Router) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.getLocation();
-    this.getOficinas();
+    await this.getOficinas();
+    await this.getProcess();
   }
 
   getLocation() {
@@ -47,12 +49,12 @@ export class GeolocalizacionComponent implements OnInit {
         "aforoMax": element.office.aforo_max,
         "lat": element.office.lat,
         "long": element.office.long,
-        "address": element.name
+        "address": element.name,
+        "id": element.office.id
       }
       this.arrDistanceNear.push(temOffice);
     });
     this.sortArrDistance(this.arrDistanceNear);
-    console.log('top de oficinas por distancia mas cercana', this.arrDistanceNear);
     let aux: any = [];
     for(let i=0; i<5;i++){
       aux.push(this.arrDistanceNear[i]);
@@ -60,6 +62,19 @@ export class GeolocalizacionComponent implements OnInit {
     this.arrDistanceNear = aux;
   }
 
+
+  async getProcess() {
+    const detailOffices: any =[];
+    for (let i = 0; i< this.arrDistanceNear.length; i++){
+      detailOffices.push( await this.customerService.getProcess(this.arrDistanceNear[i].id).toPromise());
+    }
+    for(let i=0; i< detailOffices.length; i++){
+      this.arrDistanceNear[i].process = detailOffices[i].response;
+    };
+    let temp = this.arrDistanceNear;
+    this.sortArrAforo(temp);
+    this.recomendado = temp[0];
+  }
 
   haversineDistance(pointALongitude: any,pointALatitude: any, pointBLongitude: any,pointBLatitude: any ){
     var radius = 6371; // km     
@@ -91,6 +106,21 @@ sortArrDistance(list: any = []){
     }
   }
 }
+
+sortArrAforo(list: any = []){
+  let n, i, k, aux;
+  n = list.length;
+  for (k = 1; k < n ; k++){
+    for (i = 0; i< (n-k); i++){
+      if(list[i].process.cantidad > list[i+1].process.cantidad){
+        aux = list[i];
+        list[i] = list[i+1];
+        list[i+1] = aux; 
+      }
+    }
+  }
+}
+
 
 
 }
