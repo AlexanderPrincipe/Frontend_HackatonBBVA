@@ -24,6 +24,7 @@ import { LoadBarComponent } from './load-bar/load-bar.component';
 import { GeolocalizacionComponent } from './components/geolocalizacion/geolocalizacion.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { Carousel2Component } from './components/carousel2/carousel2.component';
 
 @NgModule({
 
@@ -38,7 +39,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     CarouselComponent,
     HomeAforoComponent,
     LoadBarComponent,
-    GeolocalizacionComponent
+    GeolocalizacionComponent,
+    Carousel2Component
   ],
 
   imports: [

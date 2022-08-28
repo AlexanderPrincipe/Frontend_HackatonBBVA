@@ -1,3 +1,5 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 .div-aforo {
   height: 294px;
   width: 100%;
@@ -18,4 +20,12 @@
 
 .mas-oficinas {
   font-size: 30px;
+}
+
+.aforo {
+  border-radius: 50%;
+  padding: 10px;
+  background: #f4f3f1;
+  width: 100px;
+  display: inline-block;
 }

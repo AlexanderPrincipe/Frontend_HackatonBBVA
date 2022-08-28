@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-aforo.component.css']
 })
 export class HomeAforoComponent implements OnInit {
-
+  modalTitle = "";
+  oficina = "";
+  aforo = "";
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addClick() {
+    this.modalTitle = "Vista de Oficina";
+    this.oficina = "";
+    this.aforo = "";
   }
 
 }
