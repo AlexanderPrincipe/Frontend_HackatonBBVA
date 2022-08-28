@@ -21,6 +21,7 @@ import { AforoComponent } from './components/aforo/aforo.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HomeAforoComponent } from './components/home-aforo/home-aforo.component';
 import { LoadBarComponent } from './load-bar/load-bar.component';
+import { GeolocalizacionComponent } from './components/geolocalizacion/geolocalizacion.component';
 
 @NgModule({
 
@@ -34,7 +35,8 @@ import { LoadBarComponent } from './load-bar/load-bar.component';
     AforoComponent,
     CarouselComponent,
     HomeAforoComponent,
-    LoadBarComponent
+    LoadBarComponent,
+    GeolocalizacionComponent
   ],
 
   imports: [
