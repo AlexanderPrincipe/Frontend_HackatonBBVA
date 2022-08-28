@@ -53,6 +53,11 @@ export class GeolocalizacionComponent implements OnInit {
     });
     this.sortArrDistance(this.arrDistanceNear);
     console.log('top de oficinas por distancia mas cercana', this.arrDistanceNear);
+    let aux: any = [];
+    for(let i=0; i<5;i++){
+      aux.push(this.arrDistanceNear[i]);
+    }
+    this.arrDistanceNear = aux;
   }
 
 
