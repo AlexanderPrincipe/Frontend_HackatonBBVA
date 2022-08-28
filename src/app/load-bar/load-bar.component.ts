@@ -40,9 +40,9 @@ export class LoadBarComponent implements OnInit {
     const randito = this.getRandomInt(80);
 
     const valueObject = {
-      "value" : `width: ${parseInt(this.value) + randito}%`,
-      "number" : `${parseInt(this.value) + randito}%`,
-      "color" : this.getClassColor(parseInt(this.value) + randito)
+      "value" : `width: ${parseInt(this.value)}%`,
+      "number" : `${parseInt(this.value)}%`,
+      "color" : this.getClassColor(parseInt(this.value))
     };
     return valueObject;
   }
@@ -52,7 +52,7 @@ export class LoadBarComponent implements OnInit {
   }
 
   getClassColor(value: any) {
-    return value < 40 ? 'progress-bar bg-success' : (value > 40 && value < 60 ? 'progress-bar bg-warning' : 'progress-bar bg-danger');
+    return value < 20 ? 'progress-bar bg-success' : (value >= 20 && value < 60 ? 'progress-bar bg-warning' : 'progress-bar bg-danger');
   }
   
 

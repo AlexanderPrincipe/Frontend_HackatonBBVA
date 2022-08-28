@@ -33,7 +33,10 @@ export class AforoComponent implements OnInit {
 
   data: any[] = [];
   info: any[] = [];
+  arrayProcess: any = [];
+  newArrayProcess: any = [];
 
+  officeProcess: any;
   oficinas: any = [];
   arrayProvince: any = [];
   arrayDistrict: any = [];
@@ -86,7 +89,16 @@ export class AforoComponent implements OnInit {
     console.log('Oficinas', this.oficinas.response);
   }
 
-  showTable(district: any) {
+  async getProcess(id: any) {
+    const officeProcess = await this.customerService.getProcess(id).toPromise();
+    this.officeProcess = officeProcess;
+    // this.arrayProcess.push(officeProcess);
+    console.log('officeProcess', this.officeProcess.response);  
+    this.newArrayProcess.push(this.officeProcess.response);
+    console.log('arrayProcess', this.arrayProcess);
+  }
+
+  async showTable(district: any) {
     const districtParameter = district.replace('lima', '');
     console.log('DISTRICT final', districtParameter.trim());
 
@@ -111,6 +123,23 @@ export class AforoComponent implements OnInit {
     console.log('arrayData', arrayData);
     console.log('DATA', this.info[0].address);
     this.data = this.info[0].address;
+
+    // const newProcess = this.data.map(async (x:any) => {
+    //   await this.getProcess(x.id);
+    //   console.log('AWAIT', this.getProcess(x.id));
+    // })
+
+    for (let i = 0; i < this.data.length; i++) {
+      // console.log('ID', this.data[i].id);
+      const infoProcess = await this.getProcess(this.data[i].id);
+
+    }
+
+    // this.data.map((x:any) => {
+    //   const infoProcess = await 
+    // })
+
+    // console.log('arrayProcess', this.arrayProcess);
   }
 
 

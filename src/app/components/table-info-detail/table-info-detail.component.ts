@@ -28,6 +28,7 @@ export interface PeriodicElement {
 })
 export class TableInfoDetailComponent implements OnInit {
   @Input() data: any;
+  @Input() serviceProcess: any;
 
   displayedColumns: string[] = ['id', 'name', 'district_id', 'aforo_max'];
   
