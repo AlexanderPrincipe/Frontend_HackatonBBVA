@@ -16,7 +16,7 @@
               <div *ngFor="let distance of arrDistanceNear"
                 class="col-sm-2 d-flex justify-content-center; text-center align-items-center"
                 style="flex-direction: column; cursor: pointer;" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                (click)="addClick()">
+                (click)="open($event, distance)">
                 <span itemprop="name" class="linkwithicon__text" style="padding-bottom: 5px;" class="mt-1 mb-1 fw-bold"
                   style="color:#2b7ebd">{{distance.name}}</span>
                 <div class="aforo">
@@ -59,7 +59,7 @@
           <div class="col-md-6">
             <div class="mapouter">
               <div class="gmap_canvas">
-                <iframe src="https://maps.google.com/maps?q=-12.054830,-77.038185&hl=es;z=14&amp;output=embed"></iframe>
+                <iframe id="map" src=""></iframe>
                 <style>
                   .mapouter {
                     position: relative;
@@ -86,24 +86,32 @@
               <div class="card-text">
                 <div class="input-group mb-3">
                   <span class="input-group-text">Direccion de la oficina</span>
-                  <input type="text" class="form-control" placeholder="Av. Republica de panama 3055">
+                  <input type="text" class="form-control" [value]="address" disabled>
                 </div>
                 <div class="input-group mb-3">
-                  <span class="input-group-text">Aforo</span>
-                  <input type="text" class="form-control" placeholder="Inputer">
+                  <span class="input-group-text">Disponibilidad de la oficina</span>
+                  <input type="text" class="form-control" [value]="office" disabled>
                 </div>
                 <div class="input-group mb-3">
-                  <span class="input-group-text">Cantidad de personas en el cajero</span>
-                  <input type="text" class="form-control" placeholder="15">
+                  <span class="input-group-text">Disponibilidad de cajeros</span>
+                  <input type="text" class="form-control" [value]="cantCaj" disabled>
                 </div>
                 <div class="input-group mb-3">
-                  <span class="input-group-text">Cantidad de personas en cola</span>
-                  <input type="text" class="form-control" placeholder="Inputer">
+                  <span class="input-group-text">Disponibilidad de Ventanilla</span>
+                  <input type="text" class="form-control" [value]="cantVen" disabled>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Disponibilidad de Plataforma</span>
+                  <input type="text" class="form-control" [value]="cantPla" disabled>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text">Tiempo estimado de atencion</span>
-                  <input type="text" class="form-control" placeholder="Inputer">
+                  <input type="text" class="form-control" [value]="timeAte" disabled>
                 </div>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Personas Esperando fuera de la oficina</span>
+                <input type="text" class="form-control" [value]="cantOut" disabled>
               </div>
             </div>
           </div>
