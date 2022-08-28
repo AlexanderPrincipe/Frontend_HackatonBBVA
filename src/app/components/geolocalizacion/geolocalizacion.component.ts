@@ -9,16 +9,17 @@ import { Router } from '@angular/router';
 })
 export class GeolocalizacionComponent implements OnInit {
 
+  lat: any = -12.0939254;
+  long: any = -77.0210209;
   oficinas: any = [];
-  lat: number;
   arrDistanceNear: any = []; 
 
   constructor(private customerService: CustomersService, private router: Router) {
-    this.lat = 0;
   }
 
   ngOnInit(): void {
     this.getLocation();
+    this.getOficinas();
   }
 
   getLocation() {
@@ -26,33 +27,40 @@ export class GeolocalizacionComponent implements OnInit {
   }
 
   onSuccess(position: any) {
-    let latitude = position.coords.latitude;
-    console.log("🚀 ~ file: geolocalizacion.component.ts ~ line 30 ~ GeolocalizacionComponent ~ onSuccess ~ latitude", latitude);
-    this.lat = latitude;
+    const {latitude, longitude} = position.coords;
+    console.log(`${latitude},${longitude}`)
   }
 
   onError() {
     console.log('No pude obtener tu ubicación');
-}
+  }
+
 
   async getOficinas() {
     const oficinas = await this.customerService.getOficinas().toPromise();
     this.oficinas = oficinas;
     let arrOffice = this.oficinas.response[15].provinces[0].districts[0].address;
-    // arrOffice.forEach((element: any)=> {
-    //   this.arrDistanceNear.push(this.haversineDistance(element.office.long,element.office.lat, this.longitude,this.latitude));
-    // });
-    // console.log('distance',this.arrDistanceNear);
+    arrOffice.forEach((element: any)=> {
+      const temOffice = {
+        "distance": this.haversineDistance(element.office.long,element.office.lat, this.long,this.lat),
+        "name":  element.office.name,
+        "aforoMax": element.office.aforo_max,
+        "lat": element.office.lat,
+        "long": element.office.long,
+        "address": element.name
+      }
+      this.arrDistanceNear.push(temOffice);
+    });
+    this.sortArrDistance(this.arrDistanceNear);
+    console.log('top de oficinas por distancia mas cercana', this.arrDistanceNear);
   }
 
 
   haversineDistance(pointALongitude: any,pointALatitude: any, pointBLongitude: any,pointBLatitude: any ){
-    console.log("🚀 ~ file: geolocalizacion.component.ts ~ line 51 ~ GeolocalizacionComponent ~ haversineDistance ~ pointALongitude", pointALongitude);
     var radius = 6371; // km     
 
     //convert latitude and longitude to radians
     const deltaLatitude = (pointBLatitude - pointALatitude) * Math.PI / 180;
-    console.log("🚀 ~ file: geolocalizacion.component.ts ~ line 55 ~ GeolocalizacionComponent ~ haversineDistance ~ deltaLatitude", deltaLatitude);
     const deltaLongitude = (pointBLongitude - pointALongitude) * Math.PI / 180;
 
     const halfChordLength = Math.cos(
@@ -65,6 +73,19 @@ export class GeolocalizacionComponent implements OnInit {
     return radius * angularDistance;
 }
 
+sortArrDistance(list: any = []){
+  let n, i, k, aux;
+  n = list.length;
+  for (k = 1; k < n ; k++){
+    for (i = 0; i< (n-k); i++){
+      if(list[i].distance > list[i+1].distance){
+        aux = list[i];
+        list[i] = list[i+1];
+        list[i+1] = aux; 
+      }
+    }
+  }
+}
 
 
 }
