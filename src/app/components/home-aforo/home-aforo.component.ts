@@ -27,11 +27,7 @@ export class HomeAforoComponent implements OnInit {
   open(event: any, item: any){
     console.log(item)
     this.coors = `https://maps.google.com/maps?q=${item.lat},${item.long}&hl=es;z=14&amp;output=embed`;
-    const maps = document.querySelector('#map');
-    if(maps){
-      console.log("🚀 ~ file: home-aforo.component.ts ~ line 33 ~ HomeAforoComponent ~ open ~ maps", maps);
-      maps.setAttribute('src',this.coors);
-    }
+    console.log(this.coors);
     this.address = item.address;
     this.office = (item.process.cantidad / item.aforoMax) * 100;
     this.timeAte = `${Math.floor((Math.random()*10)+1)} min`;
