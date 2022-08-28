@@ -1,0 +1,530 @@
+{
+  "status": 200,
+  "message": "successful data retrieval",
+  "response": [
+      {
+          "id": 1,
+          "name": "Amazonas",
+          "provinces": []
+      },
+      {
+          "id": 2,
+          "name": "Áncash",
+          "provinces": []
+      },
+      {
+          "id": 3,
+          "name": "Apurimac",
+          "provinces": []
+      },
+      {
+          "id": 4,
+          "name": "Arequipa",
+          "provinces": []
+      },
+      {
+          "id": 5,
+          "name": "Ayacucho",
+          "provinces": []
+      },
+      {
+          "id": 6,
+          "name": "Cajamarca",
+          "provinces": []
+      },
+      {
+          "id": 7,
+          "name": "Callao",
+          "provinces": []
+      },
+      {
+          "id": 8,
+          "name": "Cusco",
+          "provinces": []
+      },
+      {
+          "id": 9,
+          "name": "Huancavelica",
+          "provinces": []
+      },
+      {
+          "id": 10,
+          "name": "Huánuco",
+          "provinces": []
+      },
+      {
+          "id": 11,
+          "name": "lea",
+          "provinces": []
+      },
+      {
+          "id": 12,
+          "name": "Junin",
+          "provinces": []
+      },
+      {
+          "id": 13,
+          "name": "La Libertad",
+          "provinces": []
+      },
+      {
+          "id": 14,
+          "name": "Lambayeque",
+          "provinces": []
+      },
+      {
+          "id": 15,
+          "name": "Lima Metropolitana",
+          "provinces": []
+      },
+      {
+          "id": 16,
+          "name": "Lima",
+          "provinces": [
+              {
+                  "id": 1,
+                  "name": "Lima",
+                  "departament_id": 16,
+                  "districts": [
+                      {
+                          "id": 1,
+                          "name": "San Isidro",
+                          "province_id": 1,
+                          "address": [
+                              {
+                                  "id": 1,
+                                  "name": "REP. De panama 3055",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 1,
+                                      "address_id": 1,
+                                      "name": "SAN ISIDRO",
+                                      "aforo_max": "20",
+                                      "lat": -12.093937692690364,
+                                      "long": -77.02126468272084
+                                  }
+                              },
+                              {
+                                  "id": 2,
+                                  "name": "AV. JORGE BASADRE N—133",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 2,
+                                      "address_id": 2,
+                                      "name": "AV.CENTRAL",
+                                      "aforo_max": "20",
+                                      "lat": -12.091470328623648,
+                                      "long": -77.03367560233086
+                                  }
+                              },
+                              {
+                                  "id": 3,
+                                  "name": "AV. RIVERA NAVARRETE 815",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 3,
+                                      "address_id": 3,
+                                      "name": "C.C.SAN ISIDRO",
+                                      "aforo_max": "20",
+                                      "lat": -12.095296112877223,
+                                      "long": -77.02618415862791
+                                  }
+                              },
+                              {
+                                  "id": 4,
+                                  "name": "CAMINO REAL NO. 355",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 4,
+                                      "address_id": 4,
+                                      "name": "CAMINO REAL",
+                                      "aforo_max": "20",
+                                      "lat": -12.09733672063518,
+                                      "long": -77.03610583109864
+                                  }
+                              },
+                              {
+                                  "id": 5,
+                                  "name": "AV.CANAVAL Y MOREYRA 245",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 5,
+                                      "address_id": 5,
+                                      "name": "CANAVAL Y MOREYRA",
+                                      "aforo_max": "20",
+                                      "lat": -12.096618924347482,
+                                      "long": -77.02349787345302
+                                  }
+                              },
+                              {
+                                  "id": 6,
+                                  "name": "ESQ.CAVENECIA TUDELA VARELA",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 6,
+                                      "address_id": 6,
+                                      "name": "CAVENECIA",
+                                      "aforo_max": "20",
+                                      "lat": -12.107784875832637,
+                                      "long": -77.03962898676707
+                                  }
+                              },
+                              {
+                                  "id": 7,
+                                  "name": "AVENIDA CONQUISTADORES 1099",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 7,
+                                      "address_id": 7,
+                                      "name": "CONQUISTADORES",
+                                      "aforo_max": "20",
+                                      "lat": -12.10707414240742,
+                                      "long": -77.03704882370434
+                                  }
+                              },
+                              {
+                                  "id": 8,
+                                  "name": "CALLE 23 TIENDA 1-2",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 8,
+                                      "address_id": 8,
+                                      "name": "CORPAC",
+                                      "aforo_max": "20",
+                                      "lat": -12.098317015817825,
+                                      "long": -77.01106762050091
+                                  }
+                              },
+                              {
+                                  "id": 9,
+                                  "name": "LOS LAURELES N— 214 OFICINA 210, ESQ. CUADRA 15 DE DOS DE MAYO",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 9,
+                                      "address_id": 9,
+                                      "name": "DOS DE MAYO",
+                                      "aforo_max": "20",
+                                      "lat": -12.092568463161966,
+                                      "long": -77.04650468656999
+                                  }
+                              },
+                              {
+                                  "id": 10,
+                                  "name": "JORGE BASADRE 487",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 10,
+                                      "address_id": 10,
+                                      "name": "JORGE BASADRE",
+                                      "aforo_max": "20",
+                                      "lat": -12.094840599083875,
+                                      "long": -77.03750945694144
+                                  }
+                              },
+                              {
+                                  "id": 11,
+                                  "name": "LAS BEGONIAS N- 425 - 429",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 11,
+                                      "address_id": 11,
+                                      "name": "LAS BEGONIAS",
+                                      "aforo_max": "20",
+                                      "lat": -12.092578006222412,
+                                      "long": -77.0240949068903
+                                  }
+                              },
+                              {
+                                  "id": 12,
+                                  "name": "AV. DOS DE MAYO 1198",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 12,
+                                      "address_id": 12,
+                                      "name": "LOS ROBLES",
+                                      "aforo_max": "20",
+                                      "lat": -12.091756137068888,
+                                      "long": -77.04289066768655
+                                  }
+                              },
+                              {
+                                  "id": 13,
+                                  "name": "AV. JUAN A. PEZET 1425",
+                                  "district_id": 1,
+                                  "office": {
+                                      "id": 13,
+                                      "address_id": 13,
+                                      "name": "SANTA MONICA",
+                                      "aforo_max": "20",
+                                      "lat": -12.10289227770958,
+                                      "long": -77.05264265333518
+                                  }
+                              }
+                          ]
+                      },
+                      {
+                          "id": 2,
+                          "name": "Ate",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 3,
+                          "name": "Barranco",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 4,
+                          "name": "Breña",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 5,
+                          "name": "Callao",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 6,
+                          "name": "Carabayllo",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 7,
+                          "name": "Chorrillos",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 8,
+                          "name": "Comas",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 9,
+                          "name": "El Agustino",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 10,
+                          "name": "Independencia",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 11,
+                          "name": "Jesus Maria",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 12,
+                          "name": "La Molina",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 13,
+                          "name": "La Perla",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 14,
+                          "name": "La Victoria",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 15,
+                          "name": "Lima",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 16,
+                          "name": "Lince",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 17,
+                          "name": "Los Olivos",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 18,
+                          "name": "Lurín",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 19,
+                          "name": "Magdalena del Mar",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 20,
+                          "name": "Miraflores",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 21,
+                          "name": "Pueblo Libre",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 22,
+                          "name": "Puente Piedra",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 23,
+                          "name": "Rimac",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 24,
+                          "name": "San Borja",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 25,
+                          "name": "San Isidro",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 26,
+                          "name": "San Juan de Lurigancho",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 27,
+                          "name": "San Juan de Miraflores",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 28,
+                          "name": "San Luis",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 29,
+                          "name": "San Martin de Porres",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 30,
+                          "name": "San Miguel",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 31,
+                          "name": "Santa Anita",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 32,
+                          "name": "Santiago de Surco",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 33,
+                          "name": "Surquillo",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 34,
+                          "name": "Ventanilla",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 35,
+                          "name": "Villa El Salvador",
+                          "province_id": 1,
+                          "address": []
+                      },
+                      {
+                          "id": 36,
+                          "name": "Villa María del Triunfo",
+                          "province_id": 1,
+                          "address": []
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "id": 17,
+          "name": "Loreto",
+          "provinces": []
+      },
+      {
+          "id": 18,
+          "name": "Madre de Dios",
+          "provinces": []
+      },
+      {
+          "id": 19,
+          "name": "Moquegua",
+          "provinces": []
+      },
+      {
+          "id": 20,
+          "name": "Pasco",
+          "provinces": []
+      },
+      {
+          "id": 21,
+          "name": "Piura",
+          "provinces": []
+      },
+      {
+          "id": 22,
+          "name": "Puno",
+          "provinces": []
+      },
+      {
+          "id": 23,
+          "name": "San Martin",
+          "provinces": []
+      },
+      {
+          "id": 24,
+          "name": "Tacna",
+          "provinces": []
+      },
+      {
+          "id": 25,
+          "name": "Tumbes",
+          "provinces": []
+      },
+      {
+          "id": 26,
+          "name": "Ucayali",
+          "provinces": []
+      }
+  ]
+}

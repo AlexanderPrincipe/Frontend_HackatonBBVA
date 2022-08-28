@@ -6,66 +6,50 @@
   <div class="col-12">
     <div class="row">
       <div class="col-4">
-        <form class="example-form d-flex justify-content-center">
+        <form class="example-form d-flex justify-content-center" >
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Departamento</mat-label>
             <input type="text"
                    placeholder="Selecciona departamento"
                    aria-label="Number"
                    matInput
-                   [formControl]="myControl"
                    [matAutocomplete]="auto">
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option}}
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)='getSelectedDepartment($event.option.value)'>
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option.buscador_ubigeo">
+                {{option.buscador_ubigeo}}
               </mat-option>
+             
             </mat-autocomplete>
           </mat-form-field>
         </form>
       </div>
 
-      <div class="col-4">
-        <form class="example-form d-flex justify-content-center">
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Provincia</mat-label>
-            <input type="text"
-                   placeholder="Selecciona provincia"
-                   aria-label="Number"
-                   matInput
-                   [formControl]="myControl"
-                   [matAutocomplete]="auto">
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        </form>
+      <div class="col-4 d-flex justify-content-center">
+        <mat-form-field appearance="fill">
+          <mat-label>Province</mat-label>
+          <mat-select disableRipple (selectionChange)="getSelectedProvince($event.value)">
+            <mat-option [value]="item" *ngFor="let item of arrayProvince[0]">{{item.buscador_ubigeo}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
-      <div class="col-4">
-        <form class="example-form d-flex justify-content-center">
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Distrito</mat-label>
-            <input type="text"
-                   placeholder="Selecciona distrito"
-                   aria-label="Number"
-                   matInput
-                   [formControl]="myControl"
-                   [matAutocomplete]="auto">
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        </form>
+      <div class="col-4 d-flex justify-content-center">
+        <mat-form-field appearance="fill" >
+          <mat-label>District</mat-label>
+          <mat-select disableRipple (selectionChange)="getSelectedDistrict($event.value)">
+            <mat-option [value]="item" *ngFor="let item of arrayDistrict[0]">{{item.buscador_ubigeo}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container mt-5">
-  <app-table-info-detail></app-table-info-detail>
+<div class="container mt-5" *ngIf="data.length">
+  <app-table-info-detail [data]= "this.data"></app-table-info-detail>
+</div>
+
+<div class="container mt-5 d-flex justify-content-center" *ngIf="!data.length">
+  <div class="no-info">No hay oficinas en el distrito seleccionado</div>
 </div>
 

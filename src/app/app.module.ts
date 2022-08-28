@@ -20,6 +20,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AforoComponent } from './components/aforo/aforo.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HomeAforoComponent } from './components/home-aforo/home-aforo.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
 
@@ -46,7 +47,8 @@ import { HomeAforoComponent } from './components/home-aforo/home-aforo.component
     MatButtonModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSelectModule,
   ],
   providers: [CustomersService],
   bootstrap: [AppComponent]

@@ -7,8 +7,8 @@ import { Customer } from '../interfaces/Customer';
 })
 export class CustomersService {
 
-  // url = 'http://localhost:3000/api';
-  hackaton = '34.213.175.85:8000';
+  url = 'http://localhost:3000/api';
+  hackaton = 'https://us-central1-bbva-hackathon.cloudfunctions.net/';
 
   constructor(
     private http: HttpClient
@@ -16,15 +16,15 @@ export class CustomersService {
 
   }
 
-  // getCustomers() {
-  //   return this.http.get(`${this.url}/customers`)
-  // }
+  getCustomers() {
+    return this.http.get(`${this.url}/customers`)
+  }
 
-  // saveCustomer(customer: Customer) {
-  //   return this.http.post(`${this.url}/saveCustomer`, customer);
-  // }
+  saveCustomer(customer: Customer) {
+    return this.http.post(`${this.url}/saveCustomer`, customer);
+  }
 
   getOficinas() {
-    return this.http.get(`34.213.175.85:8000/offices`);
+    return this.http.get(`${this.hackaton}/offices`)
   }
 }
