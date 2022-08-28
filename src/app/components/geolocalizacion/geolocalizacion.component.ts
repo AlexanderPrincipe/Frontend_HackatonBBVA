@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
 export class GeolocalizacionComponent implements OnInit {
 
   oficinas: any = [];
-  lat: number;
+  lat: any;
   arrDistanceNear: any = []; 
 
   constructor(private customerService: CustomersService, private router: Router) {
-    this.lat = 0;
   }
 
   ngOnInit(): void {
@@ -26,9 +25,11 @@ export class GeolocalizacionComponent implements OnInit {
   }
 
   onSuccess(position: any) {
-    let latitude = position.coords.latitude;
-    console.log("🚀 ~ file: geolocalizacion.component.ts ~ line 30 ~ GeolocalizacionComponent ~ onSuccess ~ latitude", latitude);
-    this.lat = latitude;
+    // this.lat = position.coords.latitude;
+    this.lat = position ? position.coords.latitude : 1;
+    console.log("🚀 ~ file: geolocalizacion.component.ts ~ line 30 ~ GeolocalizacionComponent ~ onSuccess ~ latitude", this.lat);
+    console.log('POSITION', position);
+    console.log('LAT', this.lat);
   }
 
   onError() {

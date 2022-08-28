@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 
 export interface PeriodicElement {
@@ -7,6 +7,8 @@ export interface PeriodicElement {
   capacity: number;
   detail: string;
 }
+
+
 
  const data: PeriodicElement[] = [
    {position: 1, name: 'Hydrogen', capacity: 1.0079, detail: 'H'},
@@ -26,32 +28,60 @@ export interface PeriodicElement {
   templateUrl: './table-info-detail.component.html',
   styleUrls: ['./table-info-detail.component.css']
 })
-export class TableInfoDetailComponent implements OnInit {
+export class TableInfoDetailComponent implements OnInit, OnChanges {
   @Input() data: any;
   @Input() serviceProcess: any;
 
-  displayedColumns: string[] = ['id', 'name', 'district_id', 'aforo_max'];
+  valueObject: any;
+  arrayValuesProgressBar: any = [];
+
+  displayedColumns: string[] = ['id', 'name', 'aforo_max'];
   
   constructor() { }
 
   ngOnInit(): void {
+    this.getValueProgressBar();
+    console.log('DATA IMPORTANTE 1', this.serviceProcess);
   }
+  
+  ngOnChanges() {
+    this.getValueProgressBar();
+    console.log('DATA IMPORTANTE 2', this.serviceProcess);
+  }
+
+  getValueProgressBar() {
+      for (let i = 0; i < this.serviceProcess.length; i++) {
+        console.log('cantidad itera', this.serviceProcess[i]);
+        console.log('AFORO MAXIMO', this.getNumber(this.serviceProcess[i].aforoMax));
+         const total = ((this.serviceProcess[i].cantidad ) / this.getNumber(this.serviceProcess[i].aforoMax)) * 100
+         this.arrayValuesProgressBar.push(total);
+         console.log('DATAAAAAAAAAAAAA', this.serviceProcess[i]);
+         console.log('arrayValuesProgressBar', this.serviceProcess[i].aforo);
+       }
+          
+       return this.arrayValuesProgressBar;
+  }
+
+  getNumber(value: any) {
+    return parseInt(value);
+  }
+
+  getFormatWidth(value: any) {
+    const objetoFormat = {
+      "valueProgressBar" : `width: ${value}%`,
+      "getColor": this.getClassColor(this.getNumber(value))
+    }
+    // console.log('objetoFormat', objetoFormat);
+    return objetoFormat;
+  }
+
+  getClassColor(value: any) {
+    return value < 20 ? 'progress-bar bg-success' : (value >= 20 && value < 60 ? 'progress-bar bg-warning' : 'progress-bar bg-danger');
+  }
+
+
+
 
 }
 
 
-// import {Component} from '@angular/core';
-
-
-// /**
-//  * @title Basic use of `<table mat-table>`
-//  */
-// @Component({
-//   selector: 'table-basic-example',
-//   styleUrls: ['table-basic-example.css'],
-//   templateUrl: 'table-basic-example.html',
-// })
-// export class TableBasicExample {
-//   displayedColumns: string[] = ['position', 'name', 'capacity', 'detail'];
-//   dataSource = ELEMENT_DATA;
-// }

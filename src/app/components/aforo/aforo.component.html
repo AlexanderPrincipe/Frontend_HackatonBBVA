@@ -46,11 +46,12 @@
 </div>
 
 <div class="container mt-5" *ngIf="data.length">
-  <app-table-info-detail [data]= "this.data"></app-table-info-detail>
-  <!-- <app-table-info-detail [data]= "this.data" [serviceProcess] = "crearVariable"></app-table-info-detail> -->
+  <!-- <app-table-info-detail [data]= "this.data"></app-table-info-detail> -->
+  <app-table-info-detail [serviceProcess] = "arrDistanceNear"></app-table-info-detail>
 </div>
 
 <div class="container mt-5 mb-5 d-flex justify-content-center" *ngIf="!data.length">
   <div class="no-info">No hay oficinas en el distrito seleccionado</div>
 </div>
+
 

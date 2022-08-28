@@ -7,7 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LoadBarComponent implements OnInit {
   @Input() value: any;
+  @Input() process: any;
+
+  valueObject: any;
   oficina: any;
+  
   listaPorcentajes: Array<any> = [
     { "valor": "25"},
       { "valor": "30"},
@@ -33,18 +37,35 @@ export class LoadBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log('MAGIA 2', this.process);
+    this.valueObject = {
+      "value" : `width: ${30}%`,
+      "number" : `${30}%`,
+      "color" : this.getClassColor(30)
+    };
   }
 
   getValueProgressBar() {
     const randito = this.getRandomInt(80);
+    // const valorProgressBar = parseInt(this.process.cantidad) - parseInt(this.process.aforo_max);
 
-    const valueObject = {
-      "value" : `width: ${parseInt(this.value)}%`,
-      "number" : `${parseInt(this.value)}%`,
-      "color" : this.getClassColor(parseInt(this.value))
-    };
-    return valueObject;
+    // console.log('cantidad', parseInt(this.process.cantidad));
+    // console.log('aforo', parseInt(this.process.aforo_max));
+
+    setTimeout(() => {
+      console.log('PROCESS 2', parseInt(this.process));
+    }, 10000);
+    setTimeout(() => {
+  
+      console.log('HOLA');
+      this.valueObject = {
+        "value" : `width: ${(parseInt(this.process.cantidad) - parseInt(this.process.aforo_max))*100}%`,
+        "number" : `${(parseInt(this.process.cantidad) - parseInt(this.process.aforo_max))*100}%`,
+        "color" : this.getClassColor((parseInt(this.process.cantidad) - parseInt(this.process.aforo_max))*100)
+      };
+    }, 10000);
+
+    return this.valueObject;
   }
 
   getRandomInt(max: any) {

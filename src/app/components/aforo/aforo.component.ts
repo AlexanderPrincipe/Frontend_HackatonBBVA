@@ -36,6 +36,10 @@ export class AforoComponent implements OnInit {
   arrayProcess: any = [];
   newArrayProcess: any = [];
 
+  arrDistanceNear: any = [];
+  detailOffices: any = [];
+  idInterval: any;
+
   officeProcess: any;
   oficinas: any = [];
   arrayProvince: any = [];
@@ -50,8 +54,9 @@ export class AforoComponent implements OnInit {
 
   constructor(private customerService: CustomersService, private router: Router) {}
 
-  ngOnInit() {
-    this.getOficinas();
+  async ngOnInit() {
+    
+    
     // console.log('optionsProvince', this.optionsProvince);
     // console.log('options', this.options);
     // console.log('department', department);
@@ -59,8 +64,16 @@ export class AforoComponent implements OnInit {
     // console.log('district', district);
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value || '')),  
+      map(value => this._filter(value || '')),
     );
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.idInterval);
+  }
+
+  consolear() {
+    console.log('asdsa', );
   }
 
   getSelectedDepartment(value: any) {
@@ -83,6 +96,86 @@ export class AforoComponent implements OnInit {
     this.showTable(value.buscador_ubigeo);
   }
 
+
+
+
+
+
+  async getOficinasPlus() {
+    
+    this.oficinas = await this.customerService.getOficinas().toPromise();
+    let arrOffice = this.oficinas.response[15].provinces[0].districts[0].address;
+    this.arrDistanceNear = [];
+    arrOffice.forEach((element: any)=> {
+      const temOffice = {
+        "name":  element.office.name,
+        "aforoMax": element.office.aforo_max,
+        "lat": element.office.lat,
+        "long": element.office.long,
+        "address": element.name,
+        "id": element.office.id,
+      }
+      this.arrDistanceNear.push(temOffice);
+    });
+    console.log('getOficinasPlus', this.arrDistanceNear);
+    console.log('VERIFICAR DATRA', this.detailOffices);
+
+    for (let i = 0; i< this.arrDistanceNear.length; i++){
+      this.detailOffices.push( await this.customerService.getProcess(this.arrDistanceNear[i].id).toPromise());
+    }
+
+    for (let i = 0; i < this.detailOffices.length; i++) {
+      if (this.arrDistanceNear && this.arrDistanceNear[i]) {
+        console.log('AFORO MAX', this.detailOffices[i].response.aforo_max);
+        console.log('RESPONSE CANTIDAD', this.detailOffices[i].response.cantidad);
+        this.arrDistanceNear[i].aforo = Math.round(((this.detailOffices[i].response.cantidad) / this.getNumber(this.detailOffices[i].response.aforo_max)) * 100)
+      }
+    }
+
+    for(let i=0; i< this.detailOffices.length; i++){
+      if(this.arrDistanceNear[i] && this.arrDistanceNear) {
+        this.arrDistanceNear[i].process = this.detailOffices[i].response;
+      }
+    };
+    this.sortArrDistance(this.arrDistanceNear);
+    // console.log('TODA LA DATA', this.arrDistanceNear);
+  }
+
+  async getProcessPlus() {
+    // console.log('detailOffices 1', this.detailOffices);
+    for (let i = 0; i< this.arrDistanceNear.length; i++){
+      this.detailOffices.push( await this.customerService.getProcess(this.arrDistanceNear[i].id).toPromise());
+    }
+
+    for(let i=0; i< this.detailOffices.length; i++){
+      this.arrDistanceNear[i].process = this.detailOffices[i].response;
+    };
+
+    for (let i = 0; i < this.detailOffices.length; i++) {
+      this.arrDistanceNear[i].aforo = Math.round(((this.detailOffices[i].response.cantidad) / this.getNumber(this.detailOffices[i].response.aforo_max)) * 100)
+    }
+    this.sortArrDistance(this.arrDistanceNear);
+    console.log('TODA LA DATA', this.arrDistanceNear);
+  }
+
+  getNumber(value: any) {
+    return parseInt(value);
+  }
+
+  sortArrDistance(list: any = []){
+    let n, i, k, aux;
+    n = list.length;
+    for (k = 1; k < n ; k++){
+      for (i = 0; i< (n-k); i++){
+        if(list[i].aforo > list[i+1].aforo){
+          aux = list[i];
+          list[i] = list[i+1];
+          list[i+1] = aux; 
+        }
+      }
+    }
+  }
+
   async getOficinas() {
     const oficinas = await this.customerService.getOficinas().toPromise();
     this.oficinas = oficinas;
@@ -90,61 +183,30 @@ export class AforoComponent implements OnInit {
   }
 
   async getProcess(id: any) {
-    const officeProcess = await this.customerService.getProcess(id).toPromise();
-    this.officeProcess = officeProcess;
-    // this.arrayProcess.push(officeProcess);
-    console.log('officeProcess', this.officeProcess.response);  
-    this.newArrayProcess.push(this.officeProcess.response);
-    console.log('arrayProcess', this.arrayProcess);
+    this.officeProcess = await this.customerService.getProcess(id).toPromise();
+    console.log('officeProcesssss', this.officeProcess.response);
+    return this.officeProcess.response;
   }
 
   async showTable(district: any) {
+    await this.getOficinasPlus();
+    // await this.getProcessPlus();
+    this.getOficinas();
+    this.idInterval = setInterval(()=> {
+      this.getOficinasPlus();
+      // this.getProcessPlus();
+    },1000)
     const districtParameter = district.replace('lima', '');
-    console.log('DISTRICT final', districtParameter.trim());
-
     const districtParameterFinal = districtParameter.trim();
-
-    // const oficinasFiltradas = this.oficinas.filter((x: any) => x.name.toLowerCase() === 'Lima');
-    // const oficinasFiltradas = this.oficinas.filter((x: any) => x.name.toLowerCase() === 'Lima');
-    console.log('OFICINAS', this.oficinas.response);
-    console.log('oficinasFiltradas', this.oficinas.response.filter((x: any) => x.name.toLowerCase() === 'lima'));
-
     const oficinasFiltradasDepartment = this.oficinas.response.filter((x: any) => x.name.toLowerCase() === 'lima');
     const oficinasFiltradasProvinces = oficinasFiltradasDepartment[0].provinces;
     const oficinasFiltradasDistricts = oficinasFiltradasProvinces[0].districts;
 
 
     const arrayData = oficinasFiltradasDistricts.filter((x: any) => x.name.toLowerCase() === districtParameterFinal.toLowerCase());
-    console.log('filtrado', oficinasFiltradasDistricts.filter((x: any) => x.name.toLowerCase() === districtParameterFinal.toLowerCase()));
-    console.log('oficinasFiltradasDistricts', oficinasFiltradasDistricts);
-    console.log('district', districtParameterFinal);
-
     this.info = arrayData;
-    console.log('arrayData', arrayData);
-    console.log('DATA', this.info[0].address);
     this.data = this.info[0].address;
-
-    // const newProcess = this.data.map(async (x:any) => {
-    //   await this.getProcess(x.id);
-    //   console.log('AWAIT', this.getProcess(x.id));
-    // })
-
-    for (let i = 0; i < this.data.length; i++) {
-      // console.log('ID', this.data[i].id);
-      const infoProcess = await this.getProcess(this.data[i].id);
-
-    }
-
-    // this.data.map((x:any) => {
-    //   const infoProcess = await 
-    // })
-
-    // console.log('arrayProcess', this.arrayProcess);
   }
-
-
-
-
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
