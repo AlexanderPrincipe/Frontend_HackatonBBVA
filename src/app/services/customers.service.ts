@@ -26,10 +26,11 @@ export class CustomersService {
   }
 
   getOficinas() {
-    return this.http.get(`${this.hackaton}/offices`);
+    return this.http.get(`${this.hackaton}/offices`)
   }
 
   getProcess(id: any) {
     return this.http.get(`${this.process}${id}`);
-  }
+}
+
 }
